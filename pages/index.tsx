@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import UrlForm from '../components/UrlForm';
+import { getShortenedUrl } from '../services/shortener';
 
 const Content = styled.div`
   max-width: 600px;
@@ -15,15 +16,23 @@ const Header = styled.h1`
 
 const Home: FC = () => {
   const [url, setUrl] = useState<string>('');
+  const [shortUrl, setShortUrl] = useState<string>('');
   const urlChanged = (newUrl: string) => {
     setUrl(newUrl);
-    console.log(url);
+    setShortUrl(getShortenedUrl(newUrl));
+    console.log(shortUrl);
   };
 
   return (
     <Content>
       <Header>URL shortener</Header>
       <UrlForm onSubmit={urlChanged} />
+      {shortUrl && (
+        <>
+          <h2>Your shortened url:</h2>
+          <p>{shortUrl}</p>
+        </>
+      )}
     </Content>
   );
 };
