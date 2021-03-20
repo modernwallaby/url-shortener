@@ -1,7 +1,12 @@
 import React, { FC } from 'react';
+import styled from 'styled-components';
+
+const Header = styled.h1`
+  font-size: 2rem;
+`;
 
 const Home: FC = () => (
-  <h1>Welcome</h1>
+  <Header>Welcome</Header>
 );
 
 export default Home;
