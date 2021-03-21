@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import Head from 'next/head';
 import styled from 'styled-components';
 import UrlForm from '../components/UrlForm';
 import { getShortenedUrl } from '../services/shortener';
@@ -8,6 +9,16 @@ import Content from '../components/ui/Content';
 const Header = styled.h1`
   font-size: 2rem;
   margin-bottom: 1.5rem;
+`;
+
+const H2 = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
+const ShortenedUrl = styled.textarea`
+  font-size: 1.25rem;
+  width: 100%;
 `;
 
 const Home: FC = () => {
@@ -23,12 +34,16 @@ const Home: FC = () => {
 
   return (
     <Content>
+      <Head>
+        <title>URL Shortener</title>
+      </Head>
+
       <Header>URL shortener</Header>
       <UrlForm onSubmit={urlChanged} />
       {shortUrl && (
         <>
-          <h2>Your shortened url:</h2>
-          <p>{`${window.location.origin}/${shortUrl}`}</p>
+          <H2>Your shortened url:</H2>
+          <ShortenedUrl readOnly={true}>{`${window.location.origin}/${shortUrl}`}</ShortenedUrl>
         </>
       )}
     </Content>
