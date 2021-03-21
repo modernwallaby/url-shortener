@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import UrlForm from '../components/UrlForm';
 import { getShortenedUrl } from '../services/shortener';
 import { saveUrl } from '../services/api';
-
-const Content = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  width: 100%;
-`;
+import Content from '../components/ui/Content';
 
 const Header = styled.h1`
   font-size: 2rem;
