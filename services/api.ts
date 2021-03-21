@@ -7,7 +7,8 @@ export async function saveUrl(original: string, shortened: string) {
     console.log(url.data);
     return;
   }
-  return axios.post('/api/url', { original, shortened });
+  const response = await axios.post('/api/url', { original, shortened });
+  return response.data;
 }
 
 function getUrl(original: string): Promise<any> {
