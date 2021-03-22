@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run db:start && next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "db:start": "docker-compose up -d",
+    "db:stop": "docker-compose stop"
   },
   "dependencies": {
     "@prisma/client": "^2.19.0",
