@@ -4,7 +4,6 @@ import { Url } from '@prisma/client';
 export async function saveUrl(original: string, shortened: string) {
   const url = await getUrl(original);
   if (url.data) {
-    console.log(url.data);
     return;
   }
   const response = await axios.post('/api/url', { original, shortened });
