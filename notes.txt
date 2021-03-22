@@ -1,4 +1,14 @@
-To run the project:
+# Initial setup:
+
+Start DB docker container:
+
+$ npm run db:start
+
+Setup database:
+
+$ npm run db:setup
+
+# To run the project:
 
 $ npm run dev
 
