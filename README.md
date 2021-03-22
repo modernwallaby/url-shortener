@@ -1,6 +1,8 @@
 # Initial setup:
 
+```
 $ npm install
+```
 
 Start DB docker container:
 
